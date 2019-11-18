@@ -85,25 +85,26 @@ void RobotSteering::laserScanCallback(
     if (i < thresholdGap && !std::isnan(i)) {
       // Set the smallest value to the minGap.
       thresholdGap = i;
-      // Check if the obstacle not in the search space.
-      if (std::isnan(thresholdGap)) {
-        // Display the obstacle presence
-        ROS_INFO_STREAM("No Obstacle ahead");
-      } else {
-        // Display the nearest obstacle distance
-        ROS_INFO_STREAM(
-            "The Minimum gap to near Obstacle is : \t" << thresholdGap);
-      }
-      // checks for the obstacle in path ahead.
-      if (thresholdGap < msg->range_min + 0.5 && !std::isnan(thresholdGap)) {
-        isInCollision = true;
-        // Display the obstacle presence
-        ROS_INFO_STREAM("Robot turning due to obstacle ahead");
-      }
-      // Function to run the robot based on the object point.
-      robotMovement(isInCollision);
+    }
+    // Check if the obstacle not in the search space.
+    if (std::isnan (thresholdGap)) {
+      // Display the obstacle presence
+      ROS_INFO_STREAM("No Obstacle ahead");
+      isInCollision = false;
+    } else {
+      // Display the nearest obstacle distance
+      ROS_INFO_STREAM(
+          "The Minimum gap to near Obstacle is : \t" << thresholdGap);
+    }
+    // checks for the obstacle in path ahead.
+    if (thresholdGap < msg->range_min + 0.5 && !std::isnan(thresholdGap)) {
+      isInCollision = true;
+      // Display the obstacle presence
+      ROS_INFO_STREAM("Robot turning due to obstacle ahead");
     }
   }
+  // Function to run the robot based on the object point.
+  robotMovement (isInCollision);
 }
 
 /**
