@@ -2,7 +2,7 @@
 
   <arg name="bagrecord" default = "1"/>
 
-  <include file="$(find turtlebot_gazebo)/launch/turtlebot_world.launch">
+  <include file="$(find turtlebot_gazebo)/launch/map/turtlebot_world.launch">
   <arg name="world_file" value="$(find robot_walker)/walkerGazebo.world"/>
   </include>
 
