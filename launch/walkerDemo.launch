@@ -17,7 +17,7 @@
  <node pkg="rosbag" 
 	type="record" 
 	name="walker" 
-	args="record -a -x /camera/(.*) -o /$(find robot_walker)/results/record.bag --duration=10" 
+	args="record -o /$(find robot_walker)/results/rosbag.bag -a -x /camera/(.*) --duration=30" 
 	if="$(arg bagrecord)">
   </node>
 
