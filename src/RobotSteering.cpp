@@ -87,7 +87,7 @@ void RobotSteering::laserScanCallback(
       thresholdGap = i;
     }
     // Check if the obstacle not in the search space.
-    if (std::isnan (thresholdGap)) {
+    if (std::isnan(thresholdGap)) {
       // Display the obstacle presence
       ROS_INFO_STREAM("No Obstacle ahead");
       isInCollision = false;
@@ -104,7 +104,7 @@ void RobotSteering::laserScanCallback(
     }
   }
   // Function to run the robot based on the object point.
-  robotMovement (isInCollision);
+  robotMovement(isInCollision);
 }
 
 /**
