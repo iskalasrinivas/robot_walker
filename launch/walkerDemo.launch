@@ -3,7 +3,7 @@
   <arg name="bagrecord" default = "true"/>
 
   <include file="$(find turtlebot_gazebo)/launch/turtlebot_world.launch">
-  <arg name="world_file" value="$(find robot_walker)/walkerGazebo.world"/>
+  <arg name="world_file" value="$(find robot_walker)/map/walkerGazebo.world"/>
   </include>
 
   <node
