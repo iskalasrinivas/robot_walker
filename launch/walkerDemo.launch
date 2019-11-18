@@ -1,8 +1,8 @@
 <launch>
 
-  <arg name="bagrecord" default = "1"/>
+  <arg name="bagrecord" default = "true"/>
 
-  <include file="$(find turtlebot_gazebo)/launch/map/turtlebot_world.launch">
+  <include file="$(find turtlebot_gazebo)/launch/turtlebot_world.launch">
   <arg name="world_file" value="$(find robot_walker)/walkerGazebo.world"/>
   </include>
 
@@ -17,7 +17,7 @@
  <node pkg="rosbag" 
 	type="record" 
 	name="walker" 
-	args="record -o /$(find robot_walker)/results/record.bag --duration=10" 
+	args="record -a -x /camera/(.*) -o /$(find robot_walker)/results/record.bag --duration=10" 
 	if="$(arg bagrecord)">
   </node>
 
