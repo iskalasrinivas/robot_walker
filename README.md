@@ -26,7 +26,7 @@ catkin_make
 ## Cpplint check
 Execute the following commands in a new terminal to run cpplint
 
-cd  <path to repository>
+cd  <path to repository>\
 cpplint $( find . -name \*.hpp -or -name \*.cpp )
 
 ## Running demo
@@ -50,7 +50,8 @@ In the above case rosbag will record for 20 seconds
 ## Playing bag files
 navigate to the results folder
 
-cd ~/catkin_ws/src/turtlebot_walker/results \ 
+cd ~/catkin_ws/src/turtlebot_walker/results
+
 play the bag file
 
 rosbag play record.bag
